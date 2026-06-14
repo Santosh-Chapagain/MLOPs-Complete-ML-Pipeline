@@ -87,8 +87,8 @@ def main(text_column='text', target_column='target'):
     """
     try:
         # Fetch the data from data/raw
-        train_data = pd.read_csv('../data/raw/train.csv')
-        test_data = pd.read_csv('../data/raw/test.csv')
+        train_data = pd.read_csv('./data/raw/train.csv')
+        test_data = pd.read_csv('./data/raw/test.csv')
         logger.debug('Data loaded properly')
 
         # Transform the data
@@ -98,7 +98,7 @@ def main(text_column='text', target_column='target'):
             test_data, text_column, target_column)
 
         # Store the data inside data/processed
-        data_path = os.path.join("../data", "processed")
+        data_path = os.path.join("./data", "processed")
         os.makedirs(data_path, exist_ok=True)
 
         train_processed_data.to_csv(os.path.join(

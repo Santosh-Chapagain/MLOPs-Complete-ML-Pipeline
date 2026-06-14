@@ -2,3 +2,7 @@ data
 logs
 models
 src/test.py
+reports
+dvc.lock
+dvc.yaml
+
