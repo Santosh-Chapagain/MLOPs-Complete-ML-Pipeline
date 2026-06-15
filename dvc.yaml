@@ -2,7 +2,9 @@ stages:
   data_ingesting:
     cmd: python src/data_ingesting.py 
     deps: 
-    - src/data_ingesting.py 
+    - src/data_ingesting.py
+    params:
+    - data_ingesting.test_size 
     outs:
     - data/raw 
   
@@ -19,6 +21,8 @@ stages:
     deps: 
     - data/processed 
     - src/feature_engineering.py 
+    params:
+    - feature_engineering.max_feature
     outs:
     - data/full_processed 
 
@@ -27,6 +31,9 @@ stages:
     deps: 
     - data/full_processed 
     - src/model_building.py 
+    params:
+    - model_building.n_estimators
+    - model_building.random_state 
     outs:
     - models/model.pkl 
   
